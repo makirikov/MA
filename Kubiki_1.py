@@ -12,19 +12,21 @@ def brosok():
     grani = int(grani_field.get())
     cubes = int(cubes_field.get())
     
-    if grani%2 == 0:
+    if grani%2 == 0 and grani != 0:
         for i in range(1,cubes+1):
             func = random.randint(1,grani)
             itog = itog+str(i)+'-й кубик: '+str(func)+'\n'
             summ = summ+func
-        output_field.insert(1.0, itog+'Сумма: '+str(summ))
     else:
-        messagebox.showerror('Ошибка', 'Кол-во граней должно быть чётным!')
-
+        messagebox.showerror('Ошибка', 'Кол-во граней должно быть чётным / больше нуля!')
+        
+    if cubes <= 0:
+        messagebox.showerror('Ошибка', 'Введите корректное кол-во кубиков!')
+    else:
+        output_field.insert(1.0, itog+'Сумма: '+str(summ))
+        
 def helpp(): #СПРАВКА
     messagebox.showinfo('Справка', 'Введите чётное кол-во граней для корректной работы, далее кол-во кубиков. Чётность/нечетность кубиков на работу программы не влияют! ')
-    
-    
     
 
 #ИНТЕРФЕЙС
